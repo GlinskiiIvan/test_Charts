@@ -38,25 +38,34 @@ namespace testCharts
             graphics.DrawLine(pen, width, height / 2, width - 10, height / 2 - 5);
 
             // Подписи координатных осей
-            graphics.DrawString("Y", new Font("10_IC_1", 12), Brushes.Black, width / 2 + 10, 0);
+            graphics.DrawString("Y", new Font("10_IC_1", 12), Brushes.Black, width / 2 + 10, -5);
             graphics.DrawString("X", new Font("10_IC_1", 12), Brushes.Black, width-15, height / 2 + 10); //width, height / 2
 
 
             // Координатная сетка и отметки на координатных осях
-            int lx = -width / 20;
-            for (int i = 10; i < width; i += 10)
+            int lx = -width / 40 + 1;
+            for (int i = 20; i < width - 20; i += 20)
             {
-                graphics.DrawLine(new Pen(Color.Black, 2), 0+i, height/2-5, 0+i, height/2+5); // метка на оси OX
-                //graphics.DrawString(lx.ToString(), new Font("10_IC_1", 7), Brushes.Black, 0 + i -5, height / 2 + 5); // подписи меток
-                //graphics.DrawLine(new Pen(Color.Gray, 1), 0 + i, 0, 0 + i, height); // Горизонтальная линия сетки
+                if (lx != 0)
+                {
+                graphics.DrawLine(new Pen(Color.Gray, 1), 0 + i + 10, 0, 0 + i + 10, height); // Горизонтальная линия сетки
+                graphics.DrawString(lx.ToString(), new Font("10_IC_1", 8, FontStyle.Bold), Brushes.Black, 0 + i + 5, height / 2 + 5); // подписи меток
+                }
+                graphics.DrawLine(new Pen(Color.Black, 2), 0+i+10, height/2-5, 0+i+10, height/2+5); // метка на оси OX
+
                 ++lx;
             }
-            int ly = height / 20;
-            for (int i = 10; i < height; i += 10)
+
+            int ly = height / 40 - 1;
+            for (int i = 20; i < height; i += 20)
             {
+                if(ly != 0)
+                {
+                graphics.DrawLine(new Pen(Color.Gray, 1), 0, 0 + i, width, 0 + i); // Вертикальная линия сетки
+                graphics.DrawString(ly.ToString(), new Font("10_IC_1", 8, FontStyle.Bold), Brushes.Black, width / 2 + 5, 0 + i - 5); // подписи меток
+                }
                 graphics.DrawLine(new Pen(Color.Black, 2), width / 2 - 5, 0 + i, width / 2 + 5, 0 + i); // метка на оси OY
-                //graphics.DrawString(ly.ToString(), new Font("10_IC_1", 7), Brushes.Black, width / 2 + 5, 0 + i - 5); // подписи меток
-                //graphics.DrawLine(new Pen(Color.Gray, 1), 0, 0 + i, width, 0 + i); // Вертикальная линия сетки
+
                 --ly;
             }
 
@@ -69,21 +78,25 @@ namespace testCharts
             Graphics graphics = pictureBox_chart.CreateGraphics();
             Pen pen = new Pen(Color.Red, 2);
 
+            // Размеры области построения графика
             int width = pictureBox_chart.Width;
             int height = pictureBox_chart.Height;
 
+            // Получение коэффициентов квадратного уравнения
             double a = Convert.ToDouble(textBox_a.Text);
             double b = Convert.ToDouble(textBox_b.Text);
             double c = Convert.ToDouble(textBox_c.Text);
 
+            // Дискрименань
             double D = (int)Math.Pow(b, 2) - 4 * a * c;
 
+            // Вершина графика
             double x0 = -(b / (2 * a));
             double y0 = -(D / (4 * a));           
 
             label3.Text = D.ToString() + " " + x0.ToString() + " " + y0.ToString();
 
-            // y = x^2
+            // Расчет точек графика
             PointF[] points = new PointF[1000];
             int idx = 0;
 
@@ -91,21 +104,19 @@ namespace testCharts
             {
                 for (int i = -points.Length / 2; i < points.Length / 2; i++)
                 {
-                    points[idx] = new PointF(i + width / 2, -(float)(a * Math.Pow(i, 2) + b * i + c) + height / 2 + -(float)c*10);
+                    points[idx] = new PointF(i + width / 2, -(float)(b * i + c) + height / 2 + -(float)(c*20-c));
                     ++idx;
                 }
             } else
             {
                 for (int i = -points.Length / 2; i < points.Length / 2; i++)
                 {
-                    //points[idx] = new Point(i + width/2 - (int)x0, -(int)Math.Pow(i, 2) / 50 + height/2 + -((int)y0));
-                    //points[idx] = new PointF(i + width / 2 + (float)x0*10, -(float)Math.Pow(i, 2) / 10 + height / 2 + -(float)y0*10);
-                    points[idx] = new PointF(i + width / 2 + (float)x0 * 10, -(float)(a * Math.Pow(i, 2) + b * i + c) / 10 + height / 2 + -(float)y0 * 10);
-
+                    points[idx] = new PointF(i + width / 2 + (float)x0 * 20, -(float)(a * Math.Pow(i, 2) + b * i + c) / 38 + height / 2 + -(float)y0 * 20);
                     ++idx;
                 }
             }
 
+            // Отрисовка графика
             graphics.DrawLines(pen, points);
         }
     }
