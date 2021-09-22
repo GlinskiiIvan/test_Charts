@@ -30,130 +30,129 @@ namespace testCharts
         private void InitializeComponent()
         {
             this.pictureBox_chart = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.label_a = new System.Windows.Forms.Label();
             this.label_b = new System.Windows.Forms.Label();
-            this.label_c = new System.Windows.Forms.Label();
             this.textBox_a = new System.Windows.Forms.TextBox();
             this.textBox_b = new System.Windows.Forms.TextBox();
             this.textBox_c = new System.Windows.Forms.TextBox();
             this.button_createChart = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
+            this.textBox_info = new System.Windows.Forms.TextBox();
+            this.label_equation = new System.Windows.Forms.Label();
+            this.label_title = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_chart)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox_chart
             // 
-            this.pictureBox_chart.Location = new System.Drawing.Point(57, 22);
+            this.pictureBox_chart.Location = new System.Drawing.Point(57, 34);
             this.pictureBox_chart.Name = "pictureBox_chart";
             this.pictureBox_chart.Size = new System.Drawing.Size(780, 480);
             this.pictureBox_chart.TabIndex = 0;
             this.pictureBox_chart.TabStop = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(229, 530);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 15);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "label1";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(286, 530);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(38, 15);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "label2";
+            this.pictureBox_chart.Layout += new System.Windows.Forms.LayoutEventHandler(this.pictureBox_chart_Layout);
             // 
             // label_a
             // 
             this.label_a.AutoSize = true;
-            this.label_a.Location = new System.Drawing.Point(369, 552);
+            this.label_a.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label_a.Location = new System.Drawing.Point(157, 584);
             this.label_a.Name = "label_a";
-            this.label_a.Size = new System.Drawing.Size(13, 15);
+            this.label_a.Size = new System.Drawing.Size(61, 22);
             this.label_a.TabIndex = 3;
-            this.label_a.Text = "a";
+            this.label_a.Text = "x^2 + ";
             // 
             // label_b
             // 
             this.label_b.AutoSize = true;
-            this.label_b.Location = new System.Drawing.Point(369, 581);
+            this.label_b.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label_b.Location = new System.Drawing.Point(296, 584);
             this.label_b.Name = "label_b";
-            this.label_b.Size = new System.Drawing.Size(14, 15);
+            this.label_b.Size = new System.Drawing.Size(35, 22);
             this.label_b.TabIndex = 4;
-            this.label_b.Text = "b";
-            // 
-            // label_c
-            // 
-            this.label_c.AutoSize = true;
-            this.label_c.Location = new System.Drawing.Point(369, 610);
-            this.label_c.Name = "label_c";
-            this.label_c.Size = new System.Drawing.Size(13, 15);
-            this.label_c.TabIndex = 5;
-            this.label_c.Text = "c";
+            this.label_b.Text = "x +";
             // 
             // textBox_a
             // 
-            this.textBox_a.Location = new System.Drawing.Point(389, 543);
+            this.textBox_a.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.textBox_a.Location = new System.Drawing.Point(57, 581);
             this.textBox_a.Name = "textBox_a";
-            this.textBox_a.Size = new System.Drawing.Size(100, 23);
+            this.textBox_a.Size = new System.Drawing.Size(100, 29);
             this.textBox_a.TabIndex = 6;
             // 
             // textBox_b
             // 
-            this.textBox_b.Location = new System.Drawing.Point(389, 572);
+            this.textBox_b.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.textBox_b.Location = new System.Drawing.Point(196, 581);
             this.textBox_b.Name = "textBox_b";
-            this.textBox_b.Size = new System.Drawing.Size(100, 23);
+            this.textBox_b.Size = new System.Drawing.Size(100, 29);
             this.textBox_b.TabIndex = 7;
             // 
             // textBox_c
             // 
-            this.textBox_c.Location = new System.Drawing.Point(389, 601);
+            this.textBox_c.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.textBox_c.Location = new System.Drawing.Point(337, 581);
             this.textBox_c.Name = "textBox_c";
-            this.textBox_c.Size = new System.Drawing.Size(100, 23);
+            this.textBox_c.Size = new System.Drawing.Size(100, 29);
             this.textBox_c.TabIndex = 8;
             // 
             // button_createChart
             // 
-            this.button_createChart.Location = new System.Drawing.Point(369, 651);
+            this.button_createChart.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button_createChart.Location = new System.Drawing.Point(57, 622);
             this.button_createChart.Name = "button_createChart";
-            this.button_createChart.Size = new System.Drawing.Size(120, 23);
+            this.button_createChart.Size = new System.Drawing.Size(380, 30);
             this.button_createChart.TabIndex = 9;
-            this.button_createChart.Text = "Построить";
+            this.button_createChart.Text = "Построить график";
             this.button_createChart.UseVisualStyleBackColor = true;
             this.button_createChart.Click += new System.EventHandler(this.button_createChart_Click);
             // 
-            // label3
+            // textBox_info
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(229, 562);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(38, 15);
-            this.label3.TabIndex = 10;
-            this.label3.Text = "label3";
+            this.textBox_info.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBox_info.Location = new System.Drawing.Point(592, 520);
+            this.textBox_info.Multiline = true;
+            this.textBox_info.Name = "textBox_info";
+            this.textBox_info.ReadOnly = true;
+            this.textBox_info.Size = new System.Drawing.Size(245, 132);
+            this.textBox_info.TabIndex = 11;
+            // 
+            // label_equation
+            // 
+            this.label_equation.AutoSize = true;
+            this.label_equation.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label_equation.Location = new System.Drawing.Point(128, 531);
+            this.label_equation.Name = "label_equation";
+            this.label_equation.Size = new System.Drawing.Size(247, 36);
+            this.label_equation.TabIndex = 12;
+            this.label_equation.Text = "y = ax^2 + bx + c";
+            // 
+            // label_title
+            // 
+            this.label_title.AutoSize = true;
+            this.label_title.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label_title.Location = new System.Drawing.Point(57, 4);
+            this.label_title.Name = "label_title";
+            this.label_title.Size = new System.Drawing.Size(262, 21);
+            this.label_title.TabIndex = 13;
+            this.label_title.Text = "График квадратного уравнения";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(880, 705);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label_title);
+            this.Controls.Add(this.label_equation);
+            this.Controls.Add(this.textBox_info);
             this.Controls.Add(this.button_createChart);
             this.Controls.Add(this.textBox_c);
             this.Controls.Add(this.textBox_b);
             this.Controls.Add(this.textBox_a);
-            this.Controls.Add(this.label_c);
             this.Controls.Add(this.label_b);
             this.Controls.Add(this.label_a);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox_chart);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Charts";
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form1_Paint);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_chart)).EndInit();
             this.ResumeLayout(false);
@@ -164,16 +163,15 @@ namespace testCharts
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox_chart;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label_a;
         private System.Windows.Forms.Label label_b;
-        private System.Windows.Forms.Label label_c;
         private System.Windows.Forms.TextBox textBox_a;
         private System.Windows.Forms.TextBox textBox_b;
         private System.Windows.Forms.TextBox textBox_c;
         private System.Windows.Forms.Button button_createChart;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox textBox_info;
+        private System.Windows.Forms.Label label_equation;
+        private System.Windows.Forms.Label label_title;
     }
 }
 
