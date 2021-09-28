@@ -113,6 +113,7 @@ namespace testCharts
             this.textBox_info.Multiline = true;
             this.textBox_info.Name = "textBox_info";
             this.textBox_info.ReadOnly = true;
+            this.textBox_info.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBox_info.Size = new System.Drawing.Size(245, 132);
             this.textBox_info.TabIndex = 11;
             // 

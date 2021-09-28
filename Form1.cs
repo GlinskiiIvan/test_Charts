@@ -104,6 +104,21 @@ namespace testCharts
                 textBox_info.Text += Environment.NewLine;
                 textBox_info.Text += "y0: " + y0.ToString();
                 textBox_info.Text += Environment.NewLine;
+
+                if (D >= 0)
+                {
+                    // корни уравнения
+                    double x1 = (-b + Math.Sqrt(D)) / (2 * a);
+                    double x2 = (-b - Math.Sqrt(D)) / (2 * a);
+
+                    textBox_info.Text += Environment.NewLine;
+                    textBox_info.Text += "Корни уравнения:";
+                    textBox_info.Text += Environment.NewLine;
+                    textBox_info.Text += "x1: " + x1.ToString();
+                    textBox_info.Text += Environment.NewLine;
+                    textBox_info.Text += "x2: " + x2.ToString();
+                    textBox_info.Text += Environment.NewLine;
+                }
             }
             
             // Расчет точек графика
@@ -121,7 +136,7 @@ namespace testCharts
             {
                 for (int i = -points.Length / 2; i < points.Length / 2; i++)
                 {
-                    points[idx] = new PointF(i + width / 2 + (float)x0 * 20, -(float)(a * Math.Pow(i, 2) + b * i + c) / 38 + height / 2 + -(float)y0 * 20);
+                    points[idx] = new PointF(i + width / 2 + (float)x0 * 20, -(float)(a * Math.Pow(i, 2) + b * i + c) / 20 + height / 2 + -(float)y0 * 20);
                     ++idx;
                 }
             }
